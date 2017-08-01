@@ -112,7 +112,7 @@
     [ion-icon {:name  :md-create
                :style create-icon}]]])
 
-(defview contact-list [_]
+(defview contact-groups-list [_]
   (letsubs [contacts       [:get-added-contacts-with-limit contacts-limit]
             contacts-count [:added-contacts-count]
             edit?          [:get-in [:contacts/ui-props :edit?]]

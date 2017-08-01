@@ -1,4 +1,4 @@
-(ns status-im.group-settings.handlers
+(ns status-im.group.chat-settings.events
   (:require [re-frame.core :refer [dispatch after enrich]]
             [status-im.utils.handlers :refer [register-handler] :as u]
             [status-im.chat.handlers :refer [delete-messages!]]

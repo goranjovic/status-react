@@ -1,4 +1,4 @@
-(ns status-im.new-group.subs
+(ns status-im.group.subs
   (:require [re-frame.core :refer [reg-sub subscribe]]
             [status-im.utils.subs :as u]))
 

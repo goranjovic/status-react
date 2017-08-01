@@ -1,13 +1,12 @@
-(ns status-im.new-group.handlers
+(ns status-im.group.events
   (:require [status-im.protocol.core :as protocol]
             [re-frame.core :refer [after dispatch debug enrich]]
             [status-im.utils.handlers :refer [register-handler] :as u]
             [status-im.components.styles :refer [default-chat-color]]
             [status-im.data-store.chats :as chats]
             [status-im.data-store.contact-groups :as groups]
-            [clojure.string :as s]
+            [clojure.string :as string]
             [status-im.i18n :refer [label]]
-            [status-im.utils.handlers :as u]
             [status-im.utils.random :as random]
             [taoensso.timbre :refer-macros [debug]]
             [taoensso.timbre :as log]
@@ -50,12 +49,12 @@
        vals
        (map :name)
        (cons username)
-       (s/join ", ")))
+       (string/join ", ")))
 
 (defn prepare-chat
   [{:keys [selected-contacts current-public-key] :as db} [_ group-name]]
   (let [contacts  (mapv #(hash-map :identity %) selected-contacts)
-        chat-name (if-not (s/blank? group-name)
+        chat-name (if-not (string/blank? group-name)
                     group-name
                     (group-name-from-contacts db))
         {:keys [public private]} (protocol/new-keypair!)]

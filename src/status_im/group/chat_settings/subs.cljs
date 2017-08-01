@@ -1,4 +1,4 @@
-(ns status-im.group-settings.subs
+(ns status-im.group.chat-settings.subs
   (:require [re-frame.core :refer [reg-sub]]
             [status-im.constants :refer [max-chat-name-length]]))
 
